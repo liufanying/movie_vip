@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>余鸿靖电影解析</title>
+    <style>
+        .container {
+            margin: 0 auto;
+            width: 970px;
+        }
+        header {
+            font-size: 1.5em;
+            text-align: center;
+        }
+        .input-url {
+            margin-top: 20px;
+            margin-bottom: 100px;
+            height: 30px;
+        }
+        .input-url input {
+            width: 70%;
+            height: 100%;
+            box-sizing: border-box;
+            vertical-align: middle;
+        }
+        .input-url select {
+            width: 30%;
+            height: 100%;
+            box-sizing: border-box;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>一个超级简洁的VIP视频网站(小裕独占)</header>
+        <div class="input-url">
+            <input type="text" id="url-input"><!--
+         --><select id="url-select">
+                <option value="1">爱奇艺腾讯 高清高速全屏</option>
+                <option value="2">优酷优酷 高清高速全屏</option>
+                <option value="3">芒果tv 高清高速全屏</option>
+            </select>
+        </div>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script>
+        $('#url-input').keypress((e)=>{
+            if(e.keyCode == '13') {
+                let selectDom = $('#url-select')[0].value;
+                let url = e.target.value;
+                let url_api;
+                switch(selectDom) {
+                    case "1": url_api=`http://app.baiyug.cn:2019/vip/index.php?url=${url}`; break;
+                    case "2": url_api=`http://www.fantee.net/fantee/?url=${url}`; break;
+                    case "3": url_api=`https://api.bbbbbb.me/yunjx2/?url=${url}`;break;
+                    
+                }
+                window.open(url_api);
+            }
+        })
+    </script>
+</body>
+</html>
